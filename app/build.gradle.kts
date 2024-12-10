@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.rpsouza.nearbyapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.rpsouza.nearbyapp"
