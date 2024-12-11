@@ -3,7 +3,7 @@ package com.rpsouza.nearbyapp.data.model.category
 import androidx.annotation.DrawableRes
 import com.rpsouza.nearbyapp.data.enum.NearbyCategoryFilterChipView
 
-data class NearbyCategory(
+data class Category(
     val id: String,
     val name: String,
 ) {

@@ -1,22 +1,22 @@
 package com.rpsouza.nearbyapp.data.model.mock
 
-import com.rpsouza.nearbyapp.data.model.market.NearbyMarket
-import com.rpsouza.nearbyapp.data.model.market.NearbyRule
+import com.rpsouza.nearbyapp.data.model.market.Market
+import com.rpsouza.nearbyapp.data.model.market.Rule
 
 val mockMarkets = listOf(
-    NearbyMarket(
+    Market(
         id = "012576ea-4441-4b8a-89e5-d5f32104c7c4",
         categoryId = "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
         name = "Sabor Grill",
         description = "Churrascaria com cortes nobres e buffet variado. Experiência completa para os amantes de carne.",
         coupons = 10,
         rules = listOf(
-            NearbyRule(
+            Rule(
                 id = "1",
                 description = "Válido até o dia 25/12",
                 marketId = "012576ea-4441-4b8a-89e5-d5f32104c7c4"
             ),
-            NearbyRule(
+            Rule(
                 id = "2",
                 description = "Disponível apenas para consumo local",
                 marketId = "012576ea-4441-4b8a-89e5-d5f32104c7c4"
@@ -28,7 +28,7 @@ val mockMarkets = listOf(
         phone = "(11) 94567-1212",
         cover = "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=400&h=300"
     ),
-    NearbyMarket(
+    Market(
         id = "2bc11e34-5f30-4ba0-90fa-c1c98f649281",
         categoryId = "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
         name = "Café Central",

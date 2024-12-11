@@ -14,13 +14,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.rpsouza.nearbyapp.data.model.category.NearbyCategory
+import com.rpsouza.nearbyapp.data.model.category.Category
+import com.rpsouza.nearbyapp.data.model.mock.mockCategories
 
 @Composable
 fun NearbyCategoryFilterList(
     modifier: Modifier = Modifier,
-    categories: List<NearbyCategory>,
-    onSelectedCategoryChanged: (category: NearbyCategory) -> Unit
+    categories: List<Category>,
+    onSelectedCategoryChanged: (category: Category) -> Unit
 ) {
     var selectedCategoryId by remember { mutableStateOf(categories.firstOrNull()?.id.orEmpty()) }
 
@@ -55,24 +56,7 @@ fun NearbyCategoryFilterList(
 private fun NearbyCategoryFilterListPreview() {
     NearbyCategoryFilterList(
         modifier = Modifier.fillMaxWidth(),
-        categories = listOf(
-            NearbyCategory(
-                id = "1",
-                name = "Alimentação"
-            ),
-            NearbyCategory(
-                id = "2",
-                name = "Supermercado"
-            ),
-            NearbyCategory(
-                id = "3",
-                name = "Farmácia"
-            ),
-            NearbyCategory(
-                id = "4",
-                name = "Padaria"
-            )
-        ),
+        categories = mockCategories,
         onSelectedCategoryChanged = {}
     )
 }

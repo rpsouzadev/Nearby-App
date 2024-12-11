@@ -28,7 +28,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.rpsouza.nearbyapp.data.model.market.NearbyMarket
+import com.rpsouza.nearbyapp.data.model.market.Market
 import com.rpsouza.nearbyapp.ui.theme.Gray100
 import com.rpsouza.nearbyapp.ui.theme.Gray200
 import com.rpsouza.nearbyapp.ui.theme.Gray400
@@ -39,8 +39,8 @@ import com.rpsouza.nearbyapp.ui.theme.Typography
 @Composable
 fun NearbyMarketCard(
     modifier: Modifier = Modifier,
-    market: NearbyMarket,
-    onClick: (NearbyMarket) -> Unit
+    market: Market,
+    onClick: (Market) -> Unit
 ) {
     Card(
         modifier = modifier
@@ -111,7 +111,7 @@ fun NearbyMarketCard(
 private fun NearbyMarketCardPreview() {
     NearbyMarketCard(
         modifier = Modifier.fillMaxWidth(),
-        market = NearbyMarket(
+        market = Market(
             id = "012576ea-4441-4b8a-89e5-d5f32104c7c4",
             categoryId = "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
             name = "Sabor Grill",
