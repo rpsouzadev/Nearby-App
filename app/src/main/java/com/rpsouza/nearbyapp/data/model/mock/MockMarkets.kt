@@ -40,5 +40,70 @@ val mockMarkets = listOf(
         address = "Alameda Jaú - Jardim Paulista",
         phone = "(12) 3456-7890",
         cover = "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300"
-    )
+    ),
+    Market(
+        id = "2bc11e34-5f30-4ba0-90fa-c1c98f649283",
+        categoryId = "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
+        name = "Café Central",
+        description = "Café aconchegante com opções de lanches e bebidas artesanais. Perfeito para uma pausa.",
+        coupons = 10,
+//        rules = emptyList(),
+        latitude = -23.559457108504436,
+        longitude = -46.66252581753144,
+        address = "Alameda Jaú - Jardim Paulista",
+        phone = "(12) 3456-7890",
+        cover = "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300"
+    ),
+    Market(
+        id = "2bc11e34-5f30-4ba0-90fa-c1c98f649284",
+        categoryId = "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
+        name = "Café Central",
+        description = "Café aconchegante com opções de lanches e bebidas artesanais. Perfeito para uma pausa.",
+        coupons = 10,
+//        rules = emptyList(),
+        latitude = -23.559457108504436,
+        longitude = -46.66252581753144,
+        address = "Alameda Jaú - Jardim Paulista",
+        phone = "(12) 3456-7890",
+        cover = "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300"
+    ),
+    Market(
+        id = "2bc11e34-5f30-4ba0-90fa-c1c98f649285",
+        categoryId = "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
+        name = "Café Central",
+        description = "Café aconchegante com opções de lanches e bebidas artesanais. Perfeito para uma pausa.",
+        coupons = 10,
+//        rules = emptyList(),
+        latitude = -23.559457108504436,
+        longitude = -46.66252581753144,
+        address = "Alameda Jaú - Jardim Paulista",
+        phone = "(12) 3456-7890",
+        cover = "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300"
+    ),
+    Market(
+        id = "2bc11e34-5f30-4ba0-90fa-c1c98f649286",
+        categoryId = "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
+        name = "Café Central",
+        description = "Café aconchegante com opções de lanches e bebidas artesanais. Perfeito para uma pausa.",
+        coupons = 10,
+//        rules = emptyList(),
+        latitude = -23.559457108504436,
+        longitude = -46.66252581753144,
+        address = "Alameda Jaú - Jardim Paulista",
+        phone = "(12) 3456-7890",
+        cover = "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300"
+    ),
+    Market(
+        id = "2bc11e34-5f30-4ba0-90fa-c1c98f649287",
+        categoryId = "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
+        name = "Café Central",
+        description = "Café aconchegante com opções de lanches e bebidas artesanais. Perfeito para uma pausa.",
+        coupons = 10,
+//        rules = emptyList(),
+        latitude = -23.559457108504436,
+        longitude = -46.66252581753144,
+        address = "Alameda Jaú - Jardim Paulista",
+        phone = "(12) 3456-7890",
+        cover = "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300"
+    ),
 )
