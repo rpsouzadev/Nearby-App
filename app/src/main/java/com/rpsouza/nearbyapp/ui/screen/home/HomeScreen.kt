@@ -21,6 +21,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.maps.android.compose.GoogleMap
+import com.rpsouza.nearbyapp.data.model.market.Market
 import com.rpsouza.nearbyapp.data.model.mock.mockCategories
 import com.rpsouza.nearbyapp.data.model.mock.mockMarkets
 import com.rpsouza.nearbyapp.ui.components.category.NearbyCategoryFilterList
@@ -29,11 +30,29 @@ import com.rpsouza.nearbyapp.ui.theme.Gray100
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScree() {
+fun HomeScreen(onNavigateToMarketDetails: (Market) -> Unit) {
     val bottomSheetState = rememberBottomSheetScaffoldState()
     var isBottomSheetOpened by remember { mutableStateOf(true) }
     val configuration = LocalConfiguration.current
 
+    HomeScreenContent(
+        bottomSheetState = bottomSheetState,
+        isBottomSheetOpened = isBottomSheetOpened,
+        configuration = configuration,
+        onNavigateToMarketDetails = { marketItem ->
+            onNavigateToMarketDetails(marketItem)
+        }
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun HomeScreenContent(
+    bottomSheetState: BottomSheetScaffoldState,
+    isBottomSheetOpened: Boolean,
+    configuration: Configuration,
+    onNavigateToMarketDetails: (Market) -> Unit
+) {
     if (isBottomSheetOpened) {
         BottomSheetScaffold(
             scaffoldState = bottomSheetState,
@@ -46,7 +65,9 @@ fun HomeScree() {
                         .fillMaxSize()
                         .padding(16.dp),
                     markets = mockMarkets,
-                    onMarketClick = {}
+                    onMarketClick = { marketItem ->
+                        onNavigateToMarketDetails(marketItem)
+                    }
                 )
             },
             content = { paddingValues ->
@@ -78,5 +99,7 @@ fun HomeScree() {
 @Preview
 @Composable
 private fun HomeScreenPreview() {
-    HomeScree()
+    HomeScreen(
+        onNavigateToMarketDetails = {}
+    )
 }

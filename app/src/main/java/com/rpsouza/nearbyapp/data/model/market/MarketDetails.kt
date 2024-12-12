@@ -3,11 +3,12 @@ package com.rpsouza.nearbyapp.data.model.market
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Market(
+data class MarketDetails(
     val id: String,
     val categoryId: String,
     val name: String,
     val description: String,
+    val rule: List<Rule>,
     val coupons: Int,
     val latitude: Double,
     val longitude: Double,
@@ -15,3 +16,4 @@ data class Market(
     val phone: String,
     val cover: String,
 )
+

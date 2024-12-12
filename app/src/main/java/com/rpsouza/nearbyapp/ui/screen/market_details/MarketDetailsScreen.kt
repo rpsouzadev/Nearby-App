@@ -1,5 +1,6 @@
 package com.rpsouza.nearbyapp.ui.screen.market_details
 
+import com.rpsouza.nearbyapp.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -34,12 +35,21 @@ import com.rpsouza.nearbyapp.ui.theme.Typography
 
 @Composable
 fun MarketDetailsScreen(
-    modifier: Modifier = Modifier,
-    market: Market
+    market: Market,
+    onNavigateBack: () -> Unit
 ) {
     Box(
-        modifier = modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize(),
     ) {
+
+        NearbyButton(
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(24.dp),
+            iconRes = R.drawable.ic_arrow_left,
+            onClick = onNavigateBack
+        )
+
         AsyncImage(
             modifier = Modifier
                 .fillMaxWidth()
@@ -92,15 +102,15 @@ fun MarketDetailsScreen(
                             .padding(vertical = 24.dp)
                     )
 
-                    if (market.rules.isNotEmpty()) {
-                        NearbyMarketDetailsRules(rules = market.rules)
-
-                        HorizontalDivider(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 24.dp)
-                        )
-                    }
+//                    if (market.rules.isNotEmpty()) {
+//                        NearbyMarketDetailsRules(rules = market.rules)
+//
+//                        HorizontalDivider(
+//                            modifier = Modifier
+//                                .fillMaxWidth()
+//                                .padding(vertical = 24.dp)
+//                        )
+//                    }
 
                     NearbyMarketDetailsCoupons(coupons = listOf("ABC12345", "DEF67890"))
                 }
@@ -121,6 +131,7 @@ fun MarketDetailsScreen(
 @Composable
 private fun MarketDetailsScreenPreview() {
     MarketDetailsScreen(
-        market = mockMarkets.first()
+        market = mockMarkets.first(),
+        onNavigateBack = {}
     )
 }

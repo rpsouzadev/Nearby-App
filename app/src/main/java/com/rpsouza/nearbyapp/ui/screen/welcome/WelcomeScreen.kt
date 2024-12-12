@@ -18,14 +18,14 @@ import com.rpsouza.nearbyapp.ui.components.welcome.WelcomeContent
 import com.rpsouza.nearbyapp.ui.components.welcome.WelcomeHeader
 
 @Composable
-fun WelcomeScreen(modifier: Modifier = Modifier) {
-    WelcomeScreenContent(modifier = modifier)
+fun WelcomeScreen(onNavigateToHome: () -> Unit) {
+    WelcomeScreenContent(onNavigateToHome = onNavigateToHome)
 }
 
 @Composable
-private fun WelcomeScreenContent(modifier: Modifier = Modifier) {
+private fun WelcomeScreenContent(onNavigateToHome: () -> Unit) {
     Column (
-        modifier = modifier
+        modifier = Modifier
             .background(Color.White)
             .fillMaxSize()
             .padding(horizontal = 40.dp, vertical = 48.dp)
@@ -38,7 +38,7 @@ private fun WelcomeScreenContent(modifier: Modifier = Modifier) {
         NearbyButton(
             modifier = Modifier.fillMaxWidth(),
             text = "Começar",
-            onClick = {}
+            onClick = onNavigateToHome
         )
     }
 }
@@ -46,5 +46,7 @@ private fun WelcomeScreenContent(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun WelcomeScreenPreview() {
-    WelcomeScreenContent()
+    WelcomeScreenContent(
+        onNavigateToHome = {}
+    )
 }
