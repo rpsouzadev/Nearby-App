@@ -13,4 +13,7 @@ sealed class AppRoutes {
 
     @Serializable
     data object Home : AppRoutes()
+
+    @Serializable
+    data object QRCodeScanner : AppRoutes()
 }

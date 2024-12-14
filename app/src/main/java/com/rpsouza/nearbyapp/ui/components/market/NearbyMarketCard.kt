@@ -28,6 +28,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.compose.AsyncImage
 import com.rpsouza.nearbyapp.data.model.market.Market
 import com.rpsouza.nearbyapp.ui.theme.Gray100
 import com.rpsouza.nearbyapp.ui.theme.Gray200
@@ -59,14 +60,14 @@ fun NearbyMarketCard(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Image(
+            AsyncImage(
+                model = market.cover,
                 modifier = Modifier
                     .clip(RoundedCornerShape(12.dp))
                     .fillMaxWidth(0.3f)
                     .height(IntrinsicSize.Min)
                     .aspectRatio(ratio = 1f, matchHeightConstraintsFirst = true),
                 contentScale = ContentScale.Crop,
-                painter = painterResource(id = R.drawable.img_burger),
                 contentDescription = "Imagem do Mercado"
             )
 
@@ -116,7 +117,7 @@ private fun NearbyMarketCardPreview() {
             categoryId = "146b1a88-b3d3-4232-8b8f-c1f006f1e86d",
             name = "Sabor Grill",
             description = "Churrascaria com cortes nobres e buffet variado. Experiência completa para os amantes de carne.",
-            coupons = 10,
+            coupons = 3,
 //            rules = emptyList(),
             latitude = -23.55974230991911,
             longitude = -46.65814845249887,

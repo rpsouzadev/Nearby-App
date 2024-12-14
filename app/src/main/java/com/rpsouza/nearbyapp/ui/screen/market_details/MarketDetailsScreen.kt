@@ -17,6 +17,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,20 +37,35 @@ import com.rpsouza.nearbyapp.ui.theme.Typography
 @Composable
 fun MarketDetailsScreen(
     market: Market,
+    uiState: MarketDetailsUiState,
+    onAction: (MarketDetailsAction) -> Unit,
+    onNavigateToQrCodeScanner: () -> Unit,
+    onNavigateBack: () -> Unit
+) {
+    LaunchedEffect(true) {
+        onAction(MarketDetailsAction.OnFetchRules(marketId = market.id))
+    }
+
+    MarketDetailsContentScreen(
+        market = market,
+        uiState = uiState,
+        onAction = onAction,
+        onNavigateToQrCodeScanner = onNavigateToQrCodeScanner,
+        onNavigateBack = onNavigateBack
+    )
+}
+
+@Composable
+private fun MarketDetailsContentScreen(
+    market: Market,
+    uiState: MarketDetailsUiState,
+    onAction: (MarketDetailsAction) -> Unit,
+    onNavigateToQrCodeScanner: () -> Unit,
     onNavigateBack: () -> Unit
 ) {
     Box(
         modifier = Modifier.fillMaxSize(),
     ) {
-
-        NearbyButton(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .padding(24.dp),
-            iconRes = R.drawable.ic_arrow_left,
-            onClick = onNavigateBack
-        )
-
         AsyncImage(
             modifier = Modifier
                 .fillMaxWidth()
@@ -57,6 +73,14 @@ fun MarketDetailsScreen(
             contentDescription = "Imagem do Local",
             contentScale = ContentScale.Crop,
             model = market.cover
+        )
+
+        NearbyButton(
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(24.dp),
+            iconRes = R.drawable.ic_arrow_left,
+            onClick = onNavigateBack
         )
 
         Box(
@@ -102,17 +126,19 @@ fun MarketDetailsScreen(
                             .padding(vertical = 24.dp)
                     )
 
-//                    if (market.rules.isNotEmpty()) {
-//                        NearbyMarketDetailsRules(rules = market.rules)
-//
-//                        HorizontalDivider(
-//                            modifier = Modifier
-//                                .fillMaxWidth()
-//                                .padding(vertical = 24.dp)
-//                        )
-//                    }
+                    if (!uiState.rules.isNullOrEmpty()) {
+                        NearbyMarketDetailsRules(rules = uiState.rules)
 
-                    NearbyMarketDetailsCoupons(coupons = listOf("ABC12345", "DEF67890"))
+                        HorizontalDivider(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 24.dp)
+                        )
+                    }
+
+                    if (!uiState.coupon.isNullOrEmpty()) {
+                        NearbyMarketDetailsCoupons(coupons = listOf(uiState.coupon))
+                    }
                 }
 
                 NearbyButton(
@@ -120,7 +146,7 @@ fun MarketDetailsScreen(
                         .fillMaxWidth()
                         .padding(top = 24.dp),
                     text = "Ler QR Code",
-                    onClick = { }
+                    onClick = onNavigateToQrCodeScanner
                 )
             }
         }
@@ -130,8 +156,11 @@ fun MarketDetailsScreen(
 @Preview
 @Composable
 private fun MarketDetailsScreenPreview() {
-    MarketDetailsScreen(
+    MarketDetailsContentScreen(
         market = mockMarkets.first(),
+        uiState = MarketDetailsUiState(),
+        onAction = {},
+        onNavigateToQrCodeScanner = {},
         onNavigateBack = {}
     )
 }
